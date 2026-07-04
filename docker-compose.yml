@@ -1,6 +1,19 @@
 services:
   web:
-    build: .
+    build:
+      context: .
+      args:
+        SITE_NAME: "Winda Website"
+        TAGLINE: "Website Coming Soon"
+        LAUNCH_DATE: "17 Agustus 2026"
+        OWNER_NAME: "Winda Aulia"
+        CONTACT_EMAIL: "winda@gmail.com"
+        RUNTIME_ENV: "production"
+
     container_name: windaweb
+
+    environment:
+      RUNTIME_ENV: production
+
     ports:
       - "8088:80"

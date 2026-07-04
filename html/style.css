@@ -1,0 +1,127 @@
+```css
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary:  #e84393;
+  --accent:   #6c63ff;
+  --dark:     #0d0d1a;
+  --text:     #eeeeff;
+  --muted:    #7777aa;
+  --border:   rgba(232, 67, 147, 0.2);
+  --shadow:   0 12px 48px rgba(0,0,0,0.7);
+  --radius:   20px;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--dark);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  overflow-x: hidden;
+}
+
+.bg-ring {
+  position: fixed; border-radius: 50%;
+  border: 1px solid; pointer-events: none; z-index: 0;
+  animation: spin 20s linear infinite;
+}
+.bg-ring--1 {
+  width: 600px; height: 600px;
+  border-color: rgba(232,67,147,0.08);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+}
+.bg-ring--2 {
+  width: 900px; height: 900px;
+  border-color: rgba(108,99,255,0.05);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  animation-duration: 35s; animation-direction: reverse;
+}
+@keyframes spin { from{transform:translate(-50%,-50%) rotate(0deg)} to{transform:translate(-50%,-50%) rotate(360deg)} }
+
+.wrapper {
+  position: relative; z-index: 1;
+  max-width: 520px; width: 100%;
+  text-align: center;
+}
+
+/* ── Badge ── */
+.badge-top {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(232,67,147,0.1);
+  border: 1px solid var(--border);
+  color: var(--primary);
+  font-size: 0.73rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 999px; margin-bottom: 32px;
+}
+.badge-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--primary);
+  animation: blink 1.4s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* ── Logo & Name ── */
+.logo { font-size: 4rem; display: block; margin-bottom: 20px; }
+
+.site-name {
+  font-size: 3rem; font-weight: 900;
+  letter-spacing: -0.04em;
+  background: linear-gradient(90deg, #fff 30%, var(--primary) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 12px; line-height: 1;
+}
+
+.tagline { font-size: 1rem; color: var(--muted); margin-bottom: 36px; }
+
+/* ── Launch Card ── */
+.launch-card {
+  background: rgba(232,67,147,0.08);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 32px;
+  margin-bottom: 32px;
+  display: inline-block;
+  min-width: 280px;
+}
+.launch-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+.launch-date  { font-size: 1.6rem; font-weight: 800; color: var(--primary); }
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  margin: 24px 0;
+}
+
+/* ── Features ── */
+.features { display: flex; justify-content: center; gap: 32px; margin: 4px 0; }
+.feature { text-align: center; }
+.feature span { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+.feature p { font-size: 0.8rem; color: var(--muted); }
+
+/* ── Contact ── */
+.notify-text { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; }
+.contact-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 8px 20px; border-radius: 999px;
+  font-size: 0.88rem; color: var(--text);
+}
+
+/* ── Footer ── */
+.footer { margin-top: 40px; font-size: 0.78rem; color: var(--muted); line-height: 2; }
+.footer strong { color: var(--text); }
+.footer-sub { opacity: 0.6; font-size: 0.72rem; }
+.footer-meta { opacity: 0.45; font-size: 0.68rem; font-family: 'Courier New', monospace; margin-top: 4px; }
+
+@media (max-width: 480px) {
+  .site-name { font-size: 2.2rem; }
+  .features { gap: 16px; }
+}
+```
